@@ -1,0 +1,7 @@
+git add .gitattributes
+git commit -m "Add .gitattributes for language override"
+git push origin main
+
+*.py linguist-detectable=true
+*.html linguist-detectable=false
+*.tex linguist-detectable=false
