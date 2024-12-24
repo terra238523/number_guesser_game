@@ -34,9 +34,72 @@ def number_guesser_game():
     print("2 if my guess is too high")
     print("3 if my guess is correct!!! (it's gonna be)")
 
+
+
+
     low = 1
     high = 1_000_000
     attempts = 0
+
+    # special messages start
+    special_messages = {
+        238523: "w-wait a minute.. you were thinking of... 238523? oh my-... t-that is my favorite number!",
+        1: "seriously? 1? you are the most boring person i've ever seen.",
+        500000: "well... that was easy.",
+        1000000: "you always have to be the biggest, don't you?",
+        1089: "hey! that's einstein's favorite number.",
+        1923: "1923 is when my homeland, turkey, was founded!",
+        23: "yes. 23 chromosomes. hope you have them.",
+        2024: "that is the year this program was made in.",
+        13: "oh no. you're gonna have some bad luck buddy.",
+        42: "the answer to life, universe, and everything. if you'd believe that LMAO",
+        666: "oooo I'm so scared.",
+        666666: "now, is that scarier than 666 or what?",
+        314159: "nerd",
+        404: "404? seriously? are you trying to kill me?",
+        18: "that is how old you should be to have sex in most countries.",
+        11: "these go to eleven.",
+        3: "they say third time's the charm. mathematically, it's impossible for me to find this with 3 attempts",
+        30: "my girlfriend thinks this number is funny...",
+        2: "that is how many times john f. kennedy got shot.,",
+        64: "a whole stack? cool.",
+        80085: "yeah, yeah. i know. boobs. very funny.",
+        69: "how old are you??",
+        420: "somebody is about to get baked.",
+        800813: "who doesn't like em'?",
+        1337: "hell yeah brother",
+        58008: "that's just boobies upside down. what's wrong with you?",
+        181: "a lesbian 69, nice.",
+        25: "spongebob thinks that's funnier than 24!",
+        555: "hahaha",
+        808: "bob",
+        451: "fahrenheit",
+        4: "you'd be dead if you were in japan.",
+        7: "lucky.",
+        911: "what's your emergency?",
+        1111: "you just keep seeing this number, don't you? it doesn't have a meaning though.",
+        325832: "that's 238523 backwards. are you anti-me or something?",
+        1939: "you must be either a tankie or some edgy 'neo-nazi' kid.",
+        1980: "did you have a mullet back then?",
+        999999: "very creative.",
+        999998: "ok that's a little creative.",
+        37: "let's go justin!!",
+        727: "when you fucking see it.",
+        9: "9 for mortal men doomed to die.",
+        5: "i like 5. it's easy to do calculations with.",
+        40000: "warhammer",
+        101: "wizard101",
+        500001: "i was pretty close at first, eh?",
+        499999: "i was pretty close at first, eh?",
+        21: "okay, now do this for 21 days."
+
+
+
+
+}
+    # special messages end
+
+
 
     while True:
         guess = (low + high) // 2
@@ -45,63 +108,12 @@ def number_guesser_game():
         print(f"is it {guess}???")
         feedback = input("enter 1 (too low), 2 (too high), or 3 (correct yuppee!!) :")
 
-        # special messages start
-
-        if feedback == "3" and guess == 238523:
-            print("w-wait a minute.. you were thinking of... 238523? oh my-... t-that is my favorite number!")
-            break
-        if feedback == "3" and guess == 1:
-            print("seriously? 1? you are the most boring person i've ever seen.")
-            break
-        if feedback == "3" and guess == 0:
-            print("seriously? 0? you are the second most boring person i've ever seen.")
-            break
-        if feedback == "3" and guess == 500000:
-            print("well... that was easy.")
-            break
-        if feedback == "3" and guess == 1000000:
-            print("you always have to be the biggest, don't you?")
-            break
-        if feedback == "3" and guess in (3, 6, 9):
-            print("Nikola Tesla thought that this number held the keys to understanding the universe")
-            break
-        if feedback == "3" and guess == 1089:
-            print("hey! that's einstein's favorite number")
-            break
-        if feedback == "3" and guess == 1923:
-            print("1923 is when my homeland, turkey, was founded!")
-            break
-        if feedback == "3" and guess == 23:
-            print("yes. 23 chromosomes. hope you have them.")
-            break
-        if feedback == "3" and guess == 2024:
-            print("that is the year this program was made in")
-            break
-        if feedback == "3" and guess == 13:
-            print("oh no. you're gonna have some bad luck buddy.")
-            break
-        if feedback == "3" and guess == 42:
-            print("the answer to life, universe, and everything")
-            break
-        if feedback == "3" and guess == 666:
-            print("oooo im so scared")
-            break
-        if feedback == "3" and guess == 666666:
-            print("now, is that scarier than 666 or what?")
-            break
-        if feedback == "3" and guess == 314159:
-            print("nerd")
-            break
-        if feedback == "3" and guess == 404:
-            raise ValueError("404? seriously? are you trying to kill me?")
-
-
-
-        #special messages end
-
-        elif feedback == "3":
-            print(f"AHAHAHHAHAA!!! I KNEW IT ALL ALONG! THE {attempts} ATTEMPTS WERE JUST TO MESS WITH YOUR MIND!")
-            break
+        if feedback == "help":
+            print("""
+            1. if you want to restart the game, just enter 3 and enter again.
+            2. if you want info about the game, enter 'info'.
+            """)
+            continue
 
         if feedback == "1":
             low = guess + 1
@@ -110,7 +122,12 @@ def number_guesser_game():
             high = guess - 1
 
         elif feedback == "3":
-            print(f"AHAHAHHAHAA!!! I KNEW IT ALL ALONG! THE {attempts} ATTEMPTS WERE JUST TO MESS WITH YOUR MIND!")
+            if guess in special_messages:
+                if guess == 404:
+                    raise ValueError(special_messages[guess])
+                print(special_messages[guess])
+            else:
+                print(f"AHAHAHHAHAA!!! I KNEW IT ALL ALONG! THE {attempts} ATTEMPTS WERE JUST TO MESS WITH YOUR MIND!")
             break
 
         else:
@@ -118,6 +135,9 @@ def number_guesser_game():
 
     if low > high:
         print("are you messing with me?? be consistent DUMBASS. dont just enter random inputs.")
+
+
+
 while True:
     number_guesser_game()
     restart = input("press enter if you want to give me another shot, cowboy. close the damn terminal if you're scared.")
