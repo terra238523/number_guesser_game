@@ -115,6 +115,18 @@ def number_guesser_game():
             """)
             continue
 
+        if feedback == "info":
+            print("""
+            number_guesser_game.
+            made with python.
+            made in turkey.
+            made by terra238523.
+            made as a beginner project.
+            there are 50 special messages in the game.
+            """)
+            continue
+
+
         if feedback == "1":
             low = guess + 1
 
