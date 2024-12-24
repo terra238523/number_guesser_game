@@ -1,7 +1,7 @@
 def number_guesser_game():
 
     def display_ascii_art():
-        print("""
+        print(r"""
           _____                    _____                    _____          
          /\    \                  /\    \                  /\    \         
         /::\____\                /::\    \                /::\    \        
